@@ -1,0 +1,27 @@
+# VAR ENVS (config, passwords)
+.env
+settings/
+
+# raw data
+raw_data/
+
+
+# pyenv
+.python-version
+
+# setuptools install infos
+*.egg-info
+
+# Unit test / coverage reports
+.coverage
+.pytest_cache/
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# settings, system, cache...
+.vscode/settings.json
+.ipynb_checkpoints
+.DS_Store

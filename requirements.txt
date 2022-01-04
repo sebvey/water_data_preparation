@@ -1,0 +1,10 @@
+# GCP SQL
+sqlalchemy
+pymysql
+
+# Data
+numpy
+pandas
+
+# Utils
+python-dotenv
