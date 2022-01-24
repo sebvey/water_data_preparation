@@ -6,7 +6,7 @@ history in a SQL table.
 
 - A 10 years history has previously been retreived from weatherAPI.com (with
 a paid subscription) and stored locally
-- GCP SQL is choosen from the database  
+- GCP SQL is choosen to host the database  
 
 - a table is created and the history loaded (see mysql_table_creation.ipnb)
 - this table can be updated manually using weatherAPI.com using a free
