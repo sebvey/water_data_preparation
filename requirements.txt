@@ -1,9 +1,13 @@
 # GCP SQL
 sqlalchemy
+pymysql
 
 # Data
 numpy
 pandas
 
-# Utils
+# web
+requests
+
+# Env Utils
 python-dotenv
