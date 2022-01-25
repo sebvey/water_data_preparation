@@ -1,6 +1,5 @@
 # GCP SQL
 sqlalchemy
-pymysql
 
 # Data
 numpy
