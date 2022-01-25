@@ -129,13 +129,18 @@ def get_weatherapi_history(nb_of_day, station_id, station_coord):
 
 def get_sql_known_days(nb_of_days, station_id, engine):
     """
+    Query the weather table for the concerned station and a number of previous
+    days defined by nb_of_days. Returns the days for which the weather is
+    already known.
+
     ARGS :
     - nb_of_days : number of days to check in the db
     - station_id : the id of the concerned station
     - engine : the sqlalchemy engine
 
     RETURNS :
-    - the list a days (datetime.date) for which the weather is already known on this station
+    - the list a days (datetime.date) for which the weather is already known
+    on this station
     """
 
     # Past Days to check
