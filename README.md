@@ -30,11 +30,11 @@ This notebook shows how to update the SQL weather table :
 
 # Cloud Function for Automatic Updates
 
-## main.py
+## [main.py](main.py)
 This is the implementation of the Cloud Function. The code of the previous
 notebook is adapted.
 
-## Makefile
+## [Makefile](Makefile)
 It shows the workflow to :
 - create a Pub/Sub topic
 - deploy/update the Cloud Function
