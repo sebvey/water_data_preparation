@@ -6,5 +6,8 @@ pymysql
 numpy
 pandas
 
-# Utils
+# web
+requests
+
+# Env Utils
 python-dotenv
