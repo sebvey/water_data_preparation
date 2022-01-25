@@ -16,11 +16,11 @@ The daily update of the SQL weather table is needed. For that purpose :
 # Cloud SQL Tables Creation 
 The code is presented in the
 [mysql_table_creation.ipynb](notebooks/mysql_table_creation) notebook.
-This notebook shows how the sql table were created :
+This notebook shows how the sql table were created and populated :
 - a stations table, with information on the stations
 - a weather table, with the 10 years history of the weather forecast
 
-# (manual) Update for the SQL weather Table with Weatherapi.com
+# Update for the SQL weather Table with Weatherapi.com (manual)
 The code is presented in the
 [mysql_update_from_weatherapi.ipynb](notebooks/mysql_update_from_weatherapi.ipynb) notebook.
 This notebook shows how to update the SQL weather table :
@@ -28,11 +28,11 @@ This notebook shows how to update the SQL weather table :
 - We check what needs to be updated the SQL weather table
 - we update the SQL table
 
-# Cloud Function for automatic Update
+# Cloud Function for Automatic Updates
 
 ## main.py
-This is the implementation of the Cloud Function. The code of the notebook is
-adapted.
+This is the implementation of the Cloud Function. The code of the previous
+notebook is adapted.
 
 ## Makefile
 It shows the workflow to :
