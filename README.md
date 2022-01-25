@@ -1,16 +1,38 @@
 # Description
 
 This repo is related to the Water Pollution Project (Predict Water Pollution
-of the Sâone River). For the project, we need to store the weather forecast
-history in a SQL table.  
+of the Sâone River). For the project, we need to store :
+- the weather forecast history from weatherapi.com in a SQL table
+- the stations information in a SQL table (a station is where the water quality
+is measured)
 
-- A 10 years history has previously been retreived from weatherAPI.com (with
-a paid subscription) and stored locally
-- GCP SQL is choosen to host the database  
+This SQL DB is first constituted with data previously constituted and 
+stored locally.  
 
-- a table is created and the history loaded (see mysql_table_creation.ipnb)
-- this table can be updated manually using weatherAPI.com using a free
-subscription. We can access a 10 days history (see mysql_update_from_weatherAPI.ipnb)
+The daily update of the SQL weather table is needed. For that purpose,
+a GCP Function is coded and deployed. A Cloud Scheduler Job is created to
+trigger this function daily.  
 
-The goal is to deploy an app in the cloud that will update the DB
-on a daily basis.
+
+# mysql_table_creation.ipynb notebook
+This notebook shows how the sql table were created :
+- a stations table, with information on the stations
+- a weather table, with the 10 years history of the weather forecast
+
+
+# mysql_update_from_weatherapi.ipynb
+This notebook shows how to update the SQL weather table :
+- We access a 10 days history from weatherapi.com (free subscription)
+- We check what needs to be updated the SQL weather table
+- we update the SQL table
+
+# main.py
+This is the implementation of the Cloud Function. The code of the notebook is
+adapted.
+
+# Makefile
+It shows the workflow to :
+- create a Pub/Sub topic
+- deploy/update the Cloud Function
+- create and update the Scheduler Job
+- manually trigger the function (manually run the job)

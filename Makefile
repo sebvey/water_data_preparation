@@ -17,7 +17,7 @@ gcloud_services_enable: gcloud_prj_select
 gcloud_topic_create: gcloud_prj_select
 	@gcloud pubsub topics create db-update-topic
 
-# FUNCTION DEPLOYMENT
+# FUNCTION DEPLOYMENT (AND UPDATE)
 gcloud_func_deploy: gcloud_prj_select gcloud_services_enable
 	@echo "DEPLOYING ON GCP FUNCTIONS ..."
 	@gcloud functions deploy db-update-func\
@@ -45,6 +45,10 @@ gcloud_job_update: gcloud_prj_select
 		--max-retry-attempts=2\
 		--location europe-west1\
 		--time-zone CET\
+
+# MANUAL TRIGGER OF THE FUNCTION (job run)
+gcloud_manual_trigger: gcloud_prj_select
+	@gcloud scheduler jobs run db-update-job --location europe-west1
 
 mysql_connect: gcloud_prj_select
 	@mysql -u ${SQL_USER} --password=${SQL_PWD} -h ${SQL_HOST}\
