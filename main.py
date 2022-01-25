@@ -14,7 +14,6 @@ def main(event,context):
     """
     Triggered from a message on the Pub/Sub topic db-update-topic.
 
-
     Args:
          event (dict): Event payload.
          context (google.cloud.functions.Context): Metadata for the event.
@@ -33,26 +32,34 @@ def main(event,context):
 
     engine = create_engine(db_uri, echo=False, future=False)
 
-    ### STATIONS DataFrame from SQL
+    # Loads the stations DataFrame from SQL stations table
     query = "SELECT * FROM stations;"
     stations = pd.read_sql(query, engine)
     stations = stations.set_index('station_id', drop=True)
 
+    ### MAIN CODE --------------------------------------------------------------
+    # For each station :
+    # - gets the previous days where the weather is already known
+    # - gets the 10 days weather history for weatherapi.com
+    # - updates the days when the weather is unknown
 
 
     for station_id in stations.index :
 
         nb_of_days = 10 # We check and update the last 10 days of history
 
-        station_coord = f"{stations.loc[station_id,'lat']},{stations.loc[station_id,'lon']}"
+        station_coord = \
+            f"{stations.loc[station_id,'lat']},{stations.loc[station_id,'lon']}"
 
         known_days = get_sql_known_days(nb_of_days,station_id,engine)
-        print(f'Station {station_id} : {len(known_days)}/{nb_of_days} days on the SQL DB')
+        print(f'Station {station_id} :',end='')
+        print(' {len(known_days)}/{nb_of_days} days on the SQL DB')
 
         if len(known_days) < nb_of_days :
 
             print(15*' ' + 'requesting Weather API...',end='')
-            history = get_weatherapi_history(nb_of_days,station_id,station_coord)
+            history = get_weatherapi_history(nb_of_days,station_id,
+                                             station_coord)
             print('done')
 
             print(15*' ' + 'Updating SQL table...',end='')
