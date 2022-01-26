@@ -53,7 +53,7 @@ def main(event,context):
 
         known_days = get_sql_known_days(nb_of_days,station_id,engine)
         print(f'Station {station_id} :',end='')
-        print(' {len(known_days)}/{nb_of_days} days on the SQL DB')
+        print(f' {len(known_days)}/{nb_of_days} days on the SQL DB')
 
         if len(known_days) < nb_of_days :
 
@@ -63,7 +63,7 @@ def main(event,context):
             print('done')
 
             print(15*' ' + 'Updating SQL table...',end='')
-            update_sql_station(station_id,history,known_days)
+            update_sql_station(history,known_days,engine)
             print('done')
 
 
