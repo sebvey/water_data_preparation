@@ -33,7 +33,7 @@ This notebook shows how the sql table were created and populated :
 
 # Update for the SQL weather Table with Weatherapi.com (manual)
 The code is presented in the
-[mysql_update_from_weatherapi](notebooks/mysql_update_from_weatherAPI.ipynb) notebook.
+[mysql_update_from_weatherAPI](notebooks/mysql_update_from_weatherAPI.ipynb) notebook.
 This notebook shows how to update the SQL weather table :
 - We access a 10 days history from weatherapi.com (free subscription)
 - We check what needs to be updated the SQL weather table
